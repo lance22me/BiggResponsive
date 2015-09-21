@@ -1,0 +1,37 @@
+﻿<h2>Your New Stuff!</h2>
+
+
+<div class="row-fluid BottomCushion">
+    <a href="#/Products"><span class="glyphicon glyphicon-hand-left Back" aria-hidden="true"></span> Back to Shopping Page</a>
+</div>
+
+<!-- 
+
+    NOTE: 'track by' is necessary here, or an error is thrown when placing two of any one prduct in the same list.
+    WHY : You cannot add two items with the same identifier in the ng-repeat.
+    EXA : A red cup and a blue cup both have the same primary identifier as they are both product: cup. 
+
+    So, 'track by' allows for an ignore on the expected key, in this case all it will look at is the order of the list.
+    'track by' can also provide a performance boost on larger ng-repeats, as each repeat is it's own $digest cycle, invokes
+    animate to append to the dom, and creates it's own scope with it's own scope inheritance depending on whether the
+    contents are a primitive or not.
+    
+    -->
+
+<div class="well" ng-repeat="item in vm.cart.items track by $index">
+
+    <div class="media">
+        <div class="media-left">
+            <img class="media-object" ng-src="{{item.productImage}}" alt="{{item.name}}" style="width: 64px;" />
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">{{item.name}}</h4>
+            {{item.price | currency:"Cost per unit: $":0}} Selected Color: {{item.selectedColor}} Quantity: {{item.quantity}}
+        </div>
+    </div>
+
+</div>
+
+{{vm.cart.grandTotal | currency:"Total cost: $":0}}
+
+

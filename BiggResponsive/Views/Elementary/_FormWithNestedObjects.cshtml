@@ -1,0 +1,84 @@
+﻿<h2>{{vm.header2}}</h2>
+
+<div class="row-fluid">
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            The 'Contact' object contains child object-collection for phone numbers.
+        </div>
+    </div>
+
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="vm.closeAlert($index)">{{alert.msg}}</alert>
+
+    <form name="form" novalidate>
+        <fieldset class="reply">
+
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <label>Name: <span class="warning">*</span></label>
+                    <input class="form-control" name="name" ng-model="vm.contactObj.name" type="text" maxlength="100" required>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <label>Email: <span class="warning">*</span></label>
+                    <input class="form-control" name="email" ng-model="vm.contactObj.email" type="email" maxlength="100" required>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <label>Subject: <span class="warning">*</span></label>
+                    <input class="form-control" name="subject" ng-model="vm.contactObj.subject" type="text" maxlength="100" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <label>Phone:</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">Home</span>
+                        <input type="text" class="form-control" ng-model="vm.contactObj.phoneNumbers[0].phone" placeholder="(999) 999-9999" maxlength="12">
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <label>&nbsp;</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">Mobile</span>
+                        <input type="text" class="form-control" ng-model="vm.contactObj.phoneNumbers[1].phone" placeholder="(999) 999-9999" maxlength="12">
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <label>&nbsp;</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">Work</span>
+                        <input type="text" class="form-control" ng-model="vm.contactObj.phoneNumbers[2].phone" placeholder="(999) 999-9999" maxlength="12">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <label>Comment: </label>
+                    <textarea class="form-control" name="comment" ng-model="vm.contactObj.comment" ngmaxlength="240"></textarea>
+                </div>
+            </div>
+
+        </fieldset>
+
+        <button ng-disabled="form.$invalid" ng-click="vm.sendContactMessage()" disabled class="btn-lg btn-primary TopCushion">Submit</button>
+        <div class="clearfix"></div>
+    </form>
+
+</div>
+
+<div class="row TopCushion">
+    <div class="col-xs-12" ng-repeat="item in vm.contacts">
+        <div class="panel panel-default">
+            <div class="panel-heading"><strong>{{item.name}}</strong> - {{item.email}}</div>
+            <div class="panel-body">
+                <div style="width: 50%; display: inline-block; float: left;">
+                    <label>Subject:</label> {{item.subject}}<br />
+                    <label>Comment:</label> {{item.comment}}
+                </div>
+                <div style="width: 50%; display: inline-block; float: left;">
+                    <label>Phone Numbers:</label> <div ng-repeat="phone in item.phoneNumbers">{{phone.phoneNumberType}}: {{phone.phone}} </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

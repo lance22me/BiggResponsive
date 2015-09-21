@@ -1,0 +1,136 @@
+﻿@{
+    ViewBag.Title = "EndlessScrollingWtihAjax";
+    Layout = "~/Views/Shared/_BiggLayout.cshtml";
+}
+<style>
+    .Constant {font-weight:bold; }
+    .BiggPagerContainer { margin-bottom: 20px;}
+    .btn{ margin-bottom: 12px;  }
+    .row-fluid {}
+
+    #DataContainer {}
+    #DataContainer .row-fluid { background:#e7e7e7; padding: 2px;margin-bottom: 2px; }
+    #DataContainer .row-fluid:hover {background:#388f58; }
+    #DataContainer h2, #DataContainer h3, #DataContainer h3, #DataContainer h4  { margin-top: 0px;}
+
+    .img-thumbnail {max-height: 150px; }
+
+    .col-xs-2, .col-sm-2{padding: 0px;}
+    .col-xs-2, .col-sm-2 > img {}
+
+    .Hyperlink { text-decoration: underline;}
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var hrefLink = "/Member/GetAllPeople"; // /controller/method
+        $.ajax({
+            url: hrefLink,
+            cache: false,
+            success: success,
+            fail: error
+        });
+
+
+    });   // end docready
+
+    var MemberModel = function (people) {
+
+        $this = this; // necessary to avoid scope / null reference between methods
+        var self = this;
+
+        self.pageSize = 10;
+        self.sliceStart = ko.observable(0);
+
+        $this.allMembers = ko.observableArray(people);
+        self.memberCount = self.allMembers().length;
+        self.pageCount = Math.ceil(self.memberCount / self.pageSize); // ceil because needs to round up:  4.01 should be 5
+
+        self.forwardPage = function () {
+
+            if (self.sliceStart() < (self.memberCount - self.pageSize)) {
+                self.sliceStart(self.sliceStart() + 10);
+            }
+        };
+
+        self.doNothing = function () { alert('It Worked');}
+
+    }; // end viewmodel
+
+    $(window).scroll(function () {
+        var scroll_pos = $(window).scrollTop();
+
+        if (scroll_pos >= 0.9 * ($(document).height() - $(window).height())) {
+
+            // This might be a good lead:
+            // http://stackoverflow.com/questions/14143366/knockout-js-doesnt-detect-programmatically-changed-checkbox-state
+
+            //MemberModel.doNothing;
+
+            VM = {
+                myVal: ko.observable('sliceStart'), changeValue: function () { VM.myVal(20);
+                }
+            };
+            
+            //ko.applyBindings(VM);
+
+            // ---------------------------------------------------------------------------------------------
+            // ---------------------------------------------------------------------------------------------
+            // Question:  Is there a way to programaatically call a Knockout field?
+            // I'm really stuck trying to figure out what I can do to set MemberModel.sliceStart property to
+            // a new value, on the scrolling event.
+            // ---------------------------------------------------------------------------------------------
+            // ---------------------------------------------------------------------------------------------
+
+            // ko.applyBindings(MemberModel.sliceStart(12));
+            // self.forwardPage; Doesn't work
+            // self.sliceStart(12); Doesn't work
+        }
+    });
+
+    function success(result, userContext, methodName) {
+
+        // on initial page load, let's take only 10 records.
+        // BUT the whole collection has to be stored somehow in a compatible object
+
+        ko.applyBindings(new MemberModel(result));
+        var resultSize = result.length;
+
+    }
+
+    function error(error, userContext, methodName) {
+        alert('failed - enable debugger.' + error);
+    }
+
+</script>
+
+<h2>Endless Scrolling Wtih Ajax</h2>
+
+
+
+
+<div id="DataContainer">
+    <div data-bind="foreach: allMembers.slice(0, (sliceStart() + pageSize))">
+        <div class="row-fluid">
+            <div class="col-sm-2 col-xs-4"><img data-bind="attr: { src: ProfileImage }" class="img-thumbnail" alt="text: FirstName"/></div>
+            <div class="col-sm-5 col-xs-8">
+                <h2 class="visible-lg"><span data-bind="text: FirstName"></span>&nbsp;<span data-bind="text: LastName"></span></h2>
+                <h2 class="visible-md"><span data-bind="text: FirstName"></span>&nbsp;<span data-bind="text: LastName"></span></h2>
+                <h3 class="visible-sm"><span data-bind="text: FirstName"></span>&nbsp;<span data-bind="text: LastName"></span></h3>
+                <h4 class="visible-xs"><span data-bind="text: FirstName"></span>&nbsp;<span data-bind="text: LastName"></span></h4>
+
+                <div data-bind="text: Phone"></div>
+                <div data-bind="text: Email"></div>
+                <div class="visible-xs Hyperlink">More Details ></div>
+
+            </div>
+            <div class="col-sm-5 hidden-xs">
+                <span data-bind="text: Address"></span><br/>
+                <span data-bind="text: City"></span> <span data-bind="    text: State"></span> <span data-bind="    text: Zip"></span>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</div>
+<button type="button" class="btn btn-primary" data-bind="click: forwardPage">Click For More Rows</button>
+<p>&nbsp;</p>

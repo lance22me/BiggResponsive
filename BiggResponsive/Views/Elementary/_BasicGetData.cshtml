@@ -1,0 +1,21 @@
+﻿<h2>{{vm.header2}}</h2>
+
+<div class="row-fluid" ng-cloak ng-repeat="item in vm.people">
+
+    <div class="media">
+        <div class="media-left">
+            <a href="#">
+                <img class="media-object thumbnail" ng-src="{{item.profileImage}}" alt="{{item.firstName}} {{item.lastName}}">
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">{{item.firstName}} {{item.lastName}}</h4>
+            {{item.address}}<br />
+            {{item.city}} {{item.state}} {{item.zip}}<br />
+            {{item.email}}<br />
+            {{item.phone}}
+        </div>
+    </div>
+
+</div>
+

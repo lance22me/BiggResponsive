@@ -1,0 +1,846 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{61926C6D-ABC1-4547-8334-0853E90CC6D3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BiggResponsive</RootNamespace>
+    <AssemblyName>BiggResponsive</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.7\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Logging, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Ninject.Extensions.Logging.3.2.1.0\lib\net45-full\Ninject.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Logging.Log4Net, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Ninject.Extensions.Logging.Log4net.3.2.1.0\lib\net45-full\Ninject.Extensions.Logging.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Ninject.Web.Common.3.2.3.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.WebApi">
+      <HintPath>..\packages\Ninject.Web.WebApi.3.2.3.0\lib\net45-full\Ninject.Web.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebActivatorEx.2.0.6\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\NinjectMvcDependencyResolver.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="Controllers\api\CardController.cs" />
+    <Compile Include="Controllers\api\ContactController.cs" />
+    <Compile Include="Controllers\api\PeopleController.cs" />
+    <Compile Include="Controllers\api\ProductController.cs" />
+    <Compile Include="Controllers\api\QlikController.cs" />
+    <Compile Include="Controllers\DemosController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoDashController.cs" />
+    <Compile Include="Controllers\ElementaryController.cs" />
+    <Compile Include="Controllers\ModalsController.cs" />
+    <Compile Include="Controllers\ShoppingController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="components\angular-mocks\angular-mocks.js" />
+    <Content Include="components\angular-route\angular-route.js" />
+    <Content Include="components\angular-route\angular-route.min.js" />
+    <Content Include="components\angular-ui-router\release\angular-ui-router.js" />
+    <Content Include="components\angular-ui-router\release\angular-ui-router.min.js" />
+    <Content Include="components\angular-ui-router\src\common.js" />
+    <Content Include="components\angular-ui-router\src\resolve.js" />
+    <Content Include="components\angular-ui-router\src\state.js" />
+    <Content Include="components\angular-ui-router\src\stateDirectives.js" />
+    <Content Include="components\angular-ui-router\src\stateFilters.js" />
+    <Content Include="components\angular-ui-router\src\templateFactory.js" />
+    <Content Include="components\angular-ui-router\src\urlMatcherFactory.js" />
+    <Content Include="components\angular-ui-router\src\urlRouter.js" />
+    <Content Include="components\angular-ui-router\src\view.js" />
+    <Content Include="components\angular-ui-router\src\viewDirective.js" />
+    <Content Include="components\angular-ui-router\src\viewScroll.js" />
+    <Content Include="components\angular\angular.js" />
+    <Content Include="components\angular\angular.min.js" />
+    <Content Include="components\bootstrap-ui\ui-bootstrap-tpls-0.12.0.min.js" />
+    <Content Include="components\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="components\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="components\bootstrap\css\bootstrap.css" />
+    <Content Include="components\bootstrap\css\bootstrap.min.css" />
+    <Content Include="components\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="components\bootstrap\themes\Cyborg.css" />
+    <Content Include="components\bootstrap\themes\Darkly.css" />
+    <Content Include="components\bootstrap\themes\Flatly.css" />
+    <Content Include="components\bootstrap\themes\SpaceLab.css" />
+    <Content Include="components\bootstrap\themes\United.css" />
+    <Content Include="components\font-awesome\css\font-awesome.css" />
+    <Content Include="components\font-awesome\css\font-awesome.min.css" />
+    <Content Include="components\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="components\html5-boilerplate\404.html" />
+    <Content Include="components\html5-boilerplate\apple-touch-icon-precomposed.png" />
+    <Content Include="components\html5-boilerplate\crossdomain.xml" />
+    <Content Include="components\html5-boilerplate\css\main.css" />
+    <Content Include="components\html5-boilerplate\css\normalize.css" />
+    <Content Include="components\html5-boilerplate\favicon.ico" />
+    <Content Include="components\html5-boilerplate\humans.txt" />
+    <Content Include="components\html5-boilerplate\index.html" />
+    <Content Include="components\html5-boilerplate\js\main.js" />
+    <Content Include="components\html5-boilerplate\js\plugins.js" />
+    <Content Include="components\html5-boilerplate\js\vendor\jquery-1.10.2.min.js" />
+    <Content Include="components\html5-boilerplate\js\vendor\modernizr-2.6.2.min.js" />
+    <Content Include="components\html5-boilerplate\robots.txt" />
+    <Content Include="components\jquery\jquery-2.1.3.js" />
+    <Content Include="components\jquery\jquery-2.1.3.min.js" />
+    <Content Include="components\lodash\lodash.js" />
+    <Content Include="components\lodash\lodash.min.js" />
+    <Content Include="components\phantomjs\phantomjs.exe" />
+    <Content Include="components\phantomjs\third-party.txt" />
+    <Content Include="Content\ImagesCards\ClubsAce.png" />
+    <Content Include="Content\ImagesCards\ClubsEight.png" />
+    <Content Include="Content\ImagesCards\ClubsFive.png" />
+    <Content Include="Content\ImagesCards\ClubsFour.png" />
+    <Content Include="Content\ImagesCards\ClubsJack.png" />
+    <Content Include="Content\ImagesCards\ClubsKing.png" />
+    <Content Include="Content\ImagesCards\ClubsNine.png" />
+    <Content Include="Content\ImagesCards\ClubsQueen.png" />
+    <Content Include="Content\ImagesCards\ClubsSeven.png" />
+    <Content Include="Content\ImagesCards\ClubsSix.png" />
+    <Content Include="Content\ImagesCards\ClubsTen.png" />
+    <Content Include="Content\ImagesCards\ClubsThree.png" />
+    <Content Include="Content\ImagesCards\ClubsTwo.png" />
+    <Content Include="Content\ImagesCards\DeckBack.png" />
+    <Content Include="Content\ImagesCards\DeckJokerBlack.png" />
+    <Content Include="Content\ImagesCards\DeckJokerRed.png" />
+    <Content Include="Content\ImagesCards\DiamondsAce.png" />
+    <Content Include="Content\ImagesCards\DiamondsEight.png" />
+    <Content Include="Content\ImagesCards\DiamondsFive.png" />
+    <Content Include="Content\ImagesCards\DiamondsFour.png" />
+    <Content Include="Content\ImagesCards\DiamondsJack.png" />
+    <Content Include="Content\ImagesCards\DiamondsKing.png" />
+    <Content Include="Content\ImagesCards\DiamondsNine.png" />
+    <Content Include="Content\ImagesCards\DiamondsQueen.png" />
+    <Content Include="Content\ImagesCards\DiamondsSeven.png" />
+    <Content Include="Content\ImagesCards\DiamondsSix.png" />
+    <Content Include="Content\ImagesCards\DiamondsTen.png" />
+    <Content Include="Content\ImagesCards\DiamondsThree.png" />
+    <Content Include="Content\ImagesCards\DiamondsTwo.png" />
+    <Content Include="Content\ImagesCards\HeartsAce.png" />
+    <Content Include="Content\ImagesCards\HeartsEight.png" />
+    <Content Include="Content\ImagesCards\HeartsFive.png" />
+    <Content Include="Content\ImagesCards\HeartsFour.png" />
+    <Content Include="Content\ImagesCards\HeartsJack.png" />
+    <Content Include="Content\ImagesCards\HeartsKing.png" />
+    <Content Include="Content\ImagesCards\HeartsNine.png" />
+    <Content Include="Content\ImagesCards\HeartsQueen.png" />
+    <Content Include="Content\ImagesCards\HeartsSeven.png" />
+    <Content Include="Content\ImagesCards\HeartsSix.png" />
+    <Content Include="Content\ImagesCards\HeartsTen.png" />
+    <Content Include="Content\ImagesCards\HeartsThree.png" />
+    <Content Include="Content\ImagesCards\HeartsTwo.png" />
+    <Content Include="Content\ImagesCards\SpadesAce.png" />
+    <Content Include="Content\ImagesCards\SpadesEight.png" />
+    <Content Include="Content\ImagesCards\SpadesFive.png" />
+    <Content Include="Content\ImagesCards\SpadesFour.png" />
+    <Content Include="Content\ImagesCards\SpadesJack.png" />
+    <Content Include="Content\ImagesCards\SpadesKing.png" />
+    <Content Include="Content\ImagesCards\SpadesNine.png" />
+    <Content Include="Content\ImagesCards\SpadesQueen.png" />
+    <Content Include="Content\ImagesCards\SpadesSeven.png" />
+    <Content Include="Content\ImagesCards\SpadesSix.png" />
+    <Content Include="Content\ImagesCards\SpadesTen.png" />
+    <Content Include="Content\ImagesCards\SpadesThree.png" />
+    <Content Include="Content\ImagesCards\SpadesTwo.png" />
+    <Content Include="Content\ImagesProducts\Beetle_Blue.jpg" />
+    <Content Include="Content\ImagesProducts\Beetle_Red.jpg" />
+    <Content Include="Content\ImagesProducts\Beetle_White.jpg" />
+    <Content Include="Content\ImagesProducts\Beetle_Yellow.jpg" />
+    <Content Include="Content\ImagesProducts\Cake_Blue.jpg" />
+    <Content Include="Content\ImagesProducts\Cake_Brown.jpg" />
+    <Content Include="Content\ImagesProducts\Cake_Pink.jpg" />
+    <Content Include="Content\ImagesProducts\Cake_Purple.jpg" />
+    <Content Include="Content\ImagesProducts\Cake_Turquoise.jpg" />
+    <Content Include="Content\ImagesProducts\Cake_White.jpg" />
+    <Content Include="Content\ImagesProducts\Cake_Yellow.jpg" />
+    <Content Include="Content\ImagesProducts\Cup_Black.jpg" />
+    <Content Include="Content\ImagesProducts\Cup_Blue.jpg" />
+    <Content Include="Content\ImagesProducts\Cup_Green.jpg" />
+    <Content Include="Content\ImagesProducts\Cup_Orange.jpg" />
+    <Content Include="Content\ImagesProducts\Cup_Red.jpg" />
+    <Content Include="Content\ImagesProducts\Jet_Blue.jpg" />
+    <Content Include="Content\ImagesProducts\Jet_Red.jpg" />
+    <Content Include="Content\ImagesProducts\Jet_Yellow.jpg" />
+    <Content Include="Content\ImagesProducts\NoImage.jpg" />
+    <Content Include="Content\Images\Admiral_George_Cockburn.jpg" />
+    <Content Include="Content\Images\Agent_Smith.gif" />
+    <Content Include="Content\Images\Ahsoka_Tano.jpg" />
+    <Content Include="Content\Images\Ai_Fukuhara.jpg" />
+    <Content Include="Content\Images\Ai_Miyazato.jpg" />
+    <Content Include="Content\Images\Ai_Sato.jpg" />
+    <Content Include="Content\Images\Aki_Syoko.jpg" />
+    <Content Include="Content\Images\Anton_Chigurh.jpg" />
+    <Content Include="Content\Images\Aoi_Fujita.jpg" />
+    <Content Include="Content\Images\Archibald_Snatcher.jpg" />
+    <Content Include="Content\Images\Asajj_Ventress.jpg" />
+    <Content Include="Content\Images\Aulus_Vitellius.jpg" />
+    <Content Include="Content\Images\Ayane_Kozasa.jpg" />
+    <Content Include="Content\Images\Ayane_Matsunaga.jpg" />
+    <Content Include="Content\Images\Ayumi_Hatoyama.jpg" />
+    <Content Include="Content\Images\Azusa_Iwashimizu.jpg" />
+    <Content Include="Content\Images\banana_yoshimoto.jpg" />
+    <Content Include="Content\Images\Basement_Cat.jpg" />
+    <Content Include="Content\Images\Bat_Commander.jpg" />
+    <Content Include="Content\Images\Betty_Rubble.jpg" />
+    <Content Include="Content\Images\Bing_Bong.jpg" />
+    <Content Include="Content\Images\Boris_Almazov.jpg" />
+    <Content Include="Content\Images\Brendan_Eich.jpg" />
+    <Content Include="Content\Images\Brock_Samson.jpeg" />
+    <Content Include="Content\Images\Bruce_Anstey.jpg" />
+    <Content Include="Content\Images\Bubba_Gump.jpg" />
+    <Content Include="Content\Images\Burger_King.png" />
+    <Content Include="Content\Images\Burt_Shavitz.jpg" />
+    <Content Include="Content\Images\Business_Cat.jpg" />
+    <Content Include="Content\Images\Butch_Taylor.jpg" />
+    <Content Include="Content\Images\Captain_Falcon.jpg" />
+    <Content Include="Content\Images\Captain_Kangaroo.jpg" />
+    <Content Include="Content\Images\Captain_Keyes.jpg" />
+    <Content Include="Content\Images\Ceiling_Cat.jpg" />
+    <Content Include="Content\Images\Charles_Babbage.jpg" />
+    <Content Include="Content\Images\Chef_Boyardee.jpg" />
+    <Content Include="Content\Images\Cheshire_Cat.jpg" />
+    <Content Include="Content\Images\Chesty_Puller.jpg" />
+    <Content Include="Content\Images\Chie_Kawabata.jpg" />
+    <Content Include="Content\Images\Chika_Sakamoto.jpg" />
+    <Content Include="Content\Images\Chinatsu_Hattori.jpg" />
+    <Content Include="Content\Images\Chi_Chi.jpg" />
+    <Content Include="Content\Images\Chuck_E_Cheeze.jpg" />
+    <Content Include="Content\Images\Chuken_Hachiko.jpg" />
+    <Content Include="Content\Images\Chupong_Changprung.jpg" />
+    <Content Include="Content\Images\Claude_Monet.jpg" />
+    <Content Include="Content\Images\Colonel_Klink.jpeg" />
+    <Content Include="Content\Images\Colonel_Meow.jpg" />
+    <Content Include="Content\Images\Colonel_Sanders.jpg" />
+    <Content Include="Content\Images\Commander_Sela.jpg" />
+    <Content Include="Content\Images\Connor_Cummins.jpg" />
+    <Content Include="Content\Images\Count_Chocula.jpg" />
+    <Content Include="Content\Images\Count_VonCount.jpg" />
+    <Content Include="Content\Images\Cuzn_Bill.jpg" />
+    <Content Include="Content\Images\Daisuke_Takahashi.jpg" />
+    <Content Include="Content\Images\Darth_Plagueis.jpg" />
+    <Content Include="Content\Images\Darth_Sidious.png" />
+    <Content Include="Content\Images\David_Johnson.jpg" />
+    <Content Include="Content\Images\Dig_Dug.png" />
+    <Content Include="Content\Images\Dj_Koya.jpg" />
+    <Content Include="Content\Images\Doctor_Facilier.jpg" />
+    <Content Include="Content\Images\Doctor_No.jpg" />
+    <Content Include="Content\Images\Don_Diego.jpg" />
+    <Content Include="Content\Images\Douglas_Crockford.jpg" />
+    <Content Include="Content\Images\Dwight_McCarthy.jpg" />
+    <Content Include="Content\Images\Edna_Krabappel.jpg" />
+    <Content Include="Content\Images\Edvard_Munch.jpg" />
+    <Content Include="Content\Images\El_Gato_Cosmico.jpg" />
+    <Content Include="Content\Images\El_Macho.jpg" />
+    <Content Include="Content\Images\Emily_Dickinson.jpg" />
+    <Content Include="Content\Images\Epic_Squirrel.png" />
+    <Content Include="Content\Images\Ernst_Blofeld.jpg" />
+    <Content Include="Content\Images\Fail_Boat.jpg" />
+    <Content Include="Content\Images\Fanny_Crosby.png" />
+    <Content Include="Content\Images\Foghorn_Leghorn.jpg" />
+    <Content Include="Content\Images\Frodo_Baggins.jpg" />
+    <Content Include="Content\Images\Fuyumi_Ono.jpg" />
+    <Content Include="Content\Images\Gaston_LeGume.png" />
+    <Content Include="Content\Images\General_Zod.jpg" />
+    <Content Include="Content\Images\Geoff_Schmidt.png" />
+    <Content Include="Content\Images\George_Washington.jpg" />
+    <Content Include="Content\Images\Gordon_Freeman.png" />
+    <Content Include="Content\Images\Green_Goblin.jpg" />
+    <Content Include="Content\Images\Green_Jeans.gif" />
+    <Content Include="Content\Images\Gul-Dukat.jpg" />
+    <Content Include="Content\Images\Guy_Martin.jpg" />
+    <Content Include="Content\Images\Harmon_killebrew.png" />
+    <Content Include="Content\Images\Harry_Houdini.jpg" />
+    <Content Include="Content\Images\Harue_Okitsu.jpg" />
+    <Content Include="Content\Images\Hashimoto_Ryutaro.jpg" />
+    <Content Include="Content\Images\Hello_Kitty.jpg" />
+    <Content Include="Content\Images\Henri_Matisse.jpg" />
+    <Content Include="Content\Images\Hideki_Matsui.jpg" />
+    <Content Include="Content\Images\Hiroshi_Kiwano.jpg" />
+    <Content Include="Content\Images\Homare_Sawa.jpg" />
+    <Content Include="Content\Images\Hondo_Ohnaka.png" />
+    <Content Include="Content\Images\Hyoichi_Kono.jpg" />
+    <Content Include="Content\Images\Ian_Hutchinson.jpg" />
+    <Content Include="Content\Images\Iemitsu_Tokugawa.jpg" />
+    <Content Include="Content\Images\Ihara_Saikaku.jpg" />
+    <Content Include="Content\Images\Iroh_Ozai.png" />
+    <Content Include="Content\Images\Ivan_Ooze.jpg" />
+    <Content Include="Content\Images\I_Dont_Always.jpg" />
+    <Content Include="Content\Images\Jacques_Mayol.jpg" />
+    <Content Include="Content\Images\James_Garfield.jpg" />
+    <Content Include="Content\Images\James_Hillier.jpg" />
+    <Content Include="Content\Images\James_Hook.jpg" />
+    <Content Include="Content\Images\Jean_Valjean.jpg" />
+    <Content Include="Content\Images\Jen_Yu.jpg" />
+    <Content Include="Content\Images\Jiro_Horikoshi.jpg" />
+    <Content Include="Content\Images\John_McGuinness.jpg" />
+    <Content Include="Content\Images\John_Resig.jpeg" />
+    <Content Include="Content\Images\John_Silver.jpg" />
+    <Content Include="Content\Images\Jonas_Grumby.jpg" />
+    <Content Include="Content\Images\Junichiro_Koizumi.png" />
+    <Content Include="Content\Images\Junko_Kajino.jpg" />
+    <Content Include="Content\Images\Jun_Igarashi.jpg" />
+    <Content Include="Content\Images\Kaho_Gotou.jpg" />
+    <Content Include="Content\Images\Kazuo_Oga.jpg" />
+    <Content Include="Content\Images\Keiko_Takeshita.jpg" />
+    <Content Include="Content\Images\Kei_Nishikori.jpg" />
+    <Content Include="Content\Images\Kenichi_Ebina.jpg" />
+    <Content Include="Content\Images\Keyboard_Cat.jpg" />
+    <Content Include="Content\Images\Kihachiro_Kawamoto.jpg" />
+    <Content Include="Content\Images\King_Candy.jpeg" />
+    <Content Include="Content\Images\King_Leonidas.jpg" />
+    <Content Include="Content\Images\Kiwako_Akashi.jpg" />
+    <Content Include="Content\Images\Koto_Ikeda.jpg" />
+    <Content Include="Content\Images\Kouhei_Ishikawa.jpg" />
+    <Content Include="Content\Images\Kunio_Kato.jpg" />
+    <Content Include="Content\Images\Laura_Wilder.jpg" />
+    <Content Include="Content\Images\Leonardo_Da_Vinci.jpg" />
+    <Content Include="Content\Images\Leonhard_Euler.jpeg" />
+    <Content Include="Content\Images\Linda_Belcher.jpg" />
+    <Content Include="Content\Images\Lord_Voldemort.jpg" />
+    <Content Include="Content\Images\Lucy_Wilde.jpg" />
+    <Content Include="Content\Images\Luminara_Unduli.png" />
+    <Content Include="Content\Images\Lyudmila_Pavlichenko.jpg" />
+    <Content Include="Content\Images\Madam_Mim.png" />
+    <Content Include="Content\Images\Magin_Buu.jpg" />
+    <Content Include="Content\Images\Makoto_Yamaguchi.jpg" />
+    <Content Include="Content\Images\Mamiya_Rinzo.jpg" />
+    <Content Include="Content\Images\Mana_Iwabuchi.jpg" />
+    <Content Include="Content\Images\Marceline_TheQueenOfTheVampires.jpg" />
+    <Content Include="Content\Images\Maru_Yonebayashi.jpg" />
+    <Content Include="Content\Images\Masaomi_Suzuki.jpg" />
+    <Content Include="Content\Images\Master_Chief.jpg" />
+    <Content Include="Content\Images\Master_Pain.jpg" />
+    <Content Include="Content\Images\Master_Roshi.jpg" />
+    <Content Include="Content\Images\Meat_Boy.jpg" />
+    <Content Include="Content\Images\Michael_Dunlop.jpg" />
+    <Content Include="Content\Images\Michael_Rutter.jpg" />
+    <Content Include="Content\Images\Miki_Ayona.jpg" />
+    <Content Include="Content\Images\Miki_Uchida.jpg" />
+    <Content Include="Content\Images\Miori_Takimoto.jpeg" />
+    <Content Include="Content\Images\Miranda_Keys.jpg" />
+    <Content Include="Content\Images\Misko_Hevery.jpg" />
+    <Content Include="Content\Images\Mitsu_Yashima.jpg" />
+    <Content Include="Content\Images\Miu_Kimura.jpg" />
+    <Content Include="Content\Images\Mizuho_Sakaguchi.jpeg" />
+    <Content Include="Content\Images\Mizuho_Sugeno.jpg" />
+    <Content Include="Content\Images\Mojo_Jojo.jpg" />
+    <Content Include="Content\Images\Monorail_Cat.jpg" />
+    <Content Include="Content\Images\Montgomery_Burns.png" />
+    <Content Include="Content\Images\Morio_Kazama.jpg" />
+    <Content Include="Content\Images\Mori_Koben.jpg" />
+    <Content Include="Content\Images\Mother_Talzin.jpg" />
+    <Content Include="Content\Images\Murasaki_Matsushima.jpg" />
+    <Content Include="Content\Images\Mutsuo_Banba.jpg" />
+    <Content Include="Content\Images\Nahoko_Uehashi.jpg" />
+    <Content Include="Content\Images\Naomichi_Yasuda.jpg" />
+    <Content Include="Content\Images\Naomi_Uemura.jpg" />
+    <Content Include="Content\Images\Natasha_Badenov.jpg" />
+    <Content Include="Content\Images\Neil_Smith.jpg" />
+    <Content Include="Content\Images\Nikola_Tesla.jpg" />
+    <Content Include="Content\Images\Nobuko_Miyamoto.jpg" />
+    <Content Include="Content\Images\Noburo_Ofuji.jpg" />
+    <Content Include="Content\Images\Nobu_Matsuhisa.jpg" />
+    <Content Include="Content\Images\NoImage.jpg" />
+    <Content Include="Content\Images\Noriko_Sumiyoshi.jpg" />
+    <Content Include="Content\Images\Noriko_Uemura.jpg" />
+    <Content Include="Content\Images\Nutty_HappyTree.jpg" />
+    <Content Include="Content\Images\Old_McDonald.jpg" />
+    <Content Include="Content\Images\Olive_Oyl.jpg" />
+    <Content Include="Content\Images\Ona _Okina.png" />
+    <Content Include="Content\Images\Oscar_Hammerstien.jpg" />
+    <Content Include="Content\Images\Paul_Gauguin.jpg" />
+    <Content Include="Content\Images\Peppermint_Patty.jpg" />
+    <Content Include="Content\Images\Peter_Hickman.jpg" />
+    <Content Include="Content\Images\Petunia_Pig.jpg" />
+    <Content Include="Content\Images\Pippi_Longstocking.jpg" />
+    <Content Include="Content\Images\Polly_Purebred.jpg" />
+    <Content Include="Content\Images\Princess_Kaguya.png" />
+    <Content Include="Content\Images\Princess_Mononoke.gif" />
+    <Content Include="Content\Images\Puppy_Cat.jpg" />
+    <Content Include="Content\Images\Racer_X.jpg" />
+    <Content Include="Content\Images\Racoome_Boom.jpg" />
+    <Content Include="Content\Images\Raffaello_Sanzio.jpeg" />
+    <Content Include="Content\Images\Rage_Face.jpg" />
+    <Content Include="Content\Images\Rene_Magritte.jpg" />
+    <Content Include="Content\Images\Rie_Funakoshi.jpg" />
+    <Content Include="Content\Images\Rikako_Muto.jpg" />
+    <Content Include="Content\Images\Rikuyo_Akuma.jpg" />
+    <Content Include="Content\Images\Rita_Repulsa.jpg" />
+    <Content Include="Content\Images\Robert_Frost.jpg" />
+    <Content Include="Content\Images\Rod_Carew.jpg" />
+    <Content Include="Content\Images\Ronald_McDonald.jpg" />
+    <Content Include="Content\Images\Rosie_Riveter.jpg" />
+    <Content Include="Content\Images\Roy_Batty.jpg" />
+    <Content Include="Content\Images\Roy_Lichtenstein.jpg" />
+    <Content Include="Content\Images\Rumiko_Takahashi.gif" />
+    <Content Include="Content\Images\Ryan_Dahl.png" />
+    <Content Include="Content\Images\Ryoko_Kobayashi.jpg" />
+    <Content Include="Content\Images\Ryoko_Tani.jpg" />
+    <Content Include="Content\Images\Sachi_Mochida.jpg" />
+    <Content Include="Content\Images\Saki_Kumagai.JPG" />
+    <Content Include="Content\Images\Sakoda_Saori.jpg" />
+    <Content Include="Content\Images\Salvador_Dali.jpg" />
+    <Content Include="Content\Images\Samuel_Clemens.jpg" />
+    <Content Include="Content\Images\Sam_Quint.jpg" />
+    <Content Include="Content\Images\Sauroman_Thewhite.jpg" />
+    <Content Include="Content\Images\Savage_Opress.png" />
+    <Content Include="Content\Images\Sayane_Ueno.jpg" />
+    <Content Include="Content\Images\Sayuri_Kimura.jpg" />
+    <Content Include="Content\Images\Sayuri_Shimada.jpg" />
+    <Content Include="Content\Images\Setsu_Matsumoto.jpg" />
+    <Content Include="Content\Images\Shadow_Jago.png" />
+    <Content Include="Content\Images\Shere_Khan.jpg" />
+    <Content Include="Content\Images\Shida_Mirai.jpg" />
+    <Content Include="Content\Images\Shigenori_Goto.jpg" />
+    <Content Include="Content\Images\Shinako_Yamada.jpg" />
+    <Content Include="Content\Images\Shinobu_Asagoe.jpg" />
+    <Content Include="Content\Images\Shinobu_Otake.jpg" />
+    <Content Include="Content\Images\Shintaro_Ishihara.jpg" />
+    <Content Include="Content\Images\Shirase_Nobu.jpg" />
+    <Content Include="Content\Images\Shizuka_Yamaguchi.jpg" />
+    <Content Include="Content\Images\Shuichi_Yokota.jpg" />
+    <Content Include="Content\Images\Sigmund_Ooze.jpg" />
+    <Content Include="Content\Images\Simo_Hayha.jpg" />
+    <Content Include="Content\Images\Snidely_Whiplash.jpg" />
+    <Content Include="Content\Images\Space_Ghost.jpg" />
+    <Content Include="Content\Images\Strong_Bad.png" />
+    <Content Include="Content\Images\Susamu_Tachi.jpg" />
+    <Content Include="Content\Images\Tadashi_Hirose.jpg" />
+    <Content Include="Content\Images\Takahata_Atsuko.jpg" />
+    <Content Include="Content\Images\Takahito_Hanazawa.jpg" />
+    <Content Include="Content\Images\Takako_Uemura.jpg" />
+    <Content Include="Content\Images\Takasugi_Shinsakuo.jpg" />
+    <Content Include="Content\Images\Takeo_Gouda.jpg" />
+    <Content Include="Content\Images\Takeru_Kobayashi.jpg" />
+    <Content Include="Content\Images\Taku_Morisaki.jpg" />
+    <Content Include="Content\Images\Tanaka_Shosuke.jpg" />
+    <Content Include="Content\Images\Team_Rocket.jpg" />
+    <Content Include="Content\Images\Techno_Viking.jpg" />
+    <Content Include="Content\Images\Tenjiku_Tokubei.jpg" />
+    <Content Include="Content\Images\Tensai_Okamura.jpg" />
+    <Content Include="Content\Images\Tetsuji_Tamayama.jpg" />
+    <Content Include="Content\Images\Tetsuya_Nakashima.jpg" />
+    <Content Include="Content\Images\Tetsuya_Yamano.jpg" />
+    <Content Include="Content\Images\Mister_Toad.jpg" />
+    <Content Include="Content\Images\Theodor_Geisel.jpg" />
+    <Content Include="Content\Images\The_Architect.jpg" />
+    <Content Include="Content\Images\The_Champ.jpg" />
+    <Content Include="Content\Images\The_Engineerl.jpg" />
+    <Content Include="Content\Images\The_Ice_King.jpg" />
+    <Content Include="Content\Images\The_Joker.jpg" />
+    <Content Include="Content\Images\The_Monarch.png" />
+    <Content Include="Content\Images\Tide_Hunter.jpg" />
+    <Content Include="Content\Images\Tomoko_Tabata.jpg" />
+    <Content Include="Content\Images\Tomomi_Nishimura.jpg" />
+    <Content Include="Content\Images\Tomonori_Kogawa.jpg" />
+    <Content Include="Content\Images\Toothy_Beaver.jpg" />
+    <Content Include="Content\Images\Toph_Beifong.jpg" />
+    <Content Include="Content\Images\Toru_Hashimoto.jpg" />
+    <Content Include="Content\Images\Toucan_Sam.jpg" />
+    <Content Include="Content\Images\Tsuneo_Hasegawa.jpg" />
+    <Content Include="Content\Images\Tsuruko_Usagi.jpg" />
+    <Content Include="Content\Images\Tsutomu_Hata.jpg" />
+    <Content Include="Content\Images\Twighlight_Princess.jpg" />
+    <Content Include="Content\Images\Under_Dog.jpg" />
+    <Content Include="Content\Images\Utako_Miyuki.jpg" />
+    <Content Include="Content\Images\Vanellapoe_VonSchweets.jpg" />
+    <Content Include="Content\Images\Vincent_VanGogh.jpg" />
+    <Content Include="Content\Images\Wendy_Wendys.jpg" />
+    <Content Include="Content\Images\Wicked_Witch.jpg" />
+    <Content Include="Content\Images\William_Wordsworth.jpg" />
+    <Content Include="Content\Images\Yamada_Nagamasa.jpg" />
+    <Content Include="Content\Images\Yasuharu_Igarashi.jpg" />
+    <Content Include="Content\Images\Yasuhide_Nakayama.jpg" />
+    <Content Include="Content\Images\Yasunari_Kawabata.jpg" />
+    <Content Include="Content\Images\Yasuo_Otsuka.jpg" />
+    <Content Include="Content\Images\Yayoi_Kusama.jpg" />
+    <Content Include="Content\Images\Yehuda_Katz.jpg" />
+    <Content Include="Content\Images\Yoshinari_Matsushita.jpg" />
+    <Content Include="Content\Images\Yoshiro_Mori.jpg" />
+    <Content Include="Content\Images\Yoshiteru_Takahashi.jpg" />
+    <Content Include="Content\Images\Yui_Yamane.jpg" />
+    <Content Include="Content\Images\Yukie_Nakama.jpg" />
+    <Content Include="Content\Images\Yukio_Hatoyama.jpg" />
+    <Content Include="Content\Images\Yukon_Cornelius.jpg" />
+    <Content Include="Content\Images\Yutaka_Yuzawa.jpg" />
+    <Content Include="Content\Images\Yuto_Maeda.jpg" />
+    <Content Include="Content\Images\Yuuki_Takachiho.jpg" />
+    <Content Include="Content\Images\Zuicho_Tachibana.jpg" />
+    <Content Include="Content\Styles\BiggResponsive.css" />
+    <Content Include="Content\Templates\header.html" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\ui-grid.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\app.routes.js" />
+    <Content Include="components\bootstrap\js\bootstrap.js" />
+    <Content Include="components\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Scripts\common\namespace.js" />
+    <Content Include="Scripts\controllers\BaseController.js" />
+    <Content Include="Scripts\controllers\Basic\BasicFormController.js" />
+    <Content Include="Scripts\controllers\Basic\FormInputMasksController.js" />
+    <Content Include="Scripts\controllers\Basic\FormWithEditDeleteController.js" />
+    <Content Include="Scripts\controllers\Basic\FormWithNestedObjectsController.js" />
+    <Content Include="Scripts\controllers\Basic\GridGoodiesController.js" />
+    <Content Include="Scripts\controllers\Basic\LocalStorageController.js" />
+    <Content Include="Scripts\controllers\Basic\PaginationController.js" />
+    <Content Include="Scripts\controllers\CardController.js" />
+    <Content Include="Scripts\controllers\controllers.module.js" />
+    <Content Include="Scripts\controllers\Basic\FormWithModalController.js" />
+    <Content Include="Scripts\controllers\GroupCreateController.js" />
+    <Content Include="Scripts\controllers\GroupManagerController.js" />
+    <Content Include="Scripts\controllers\HomeController.js" />
+    <Content Include="components\angular-route\angular-route.min.js.map" />
+    <Content Include="components\angular\angular.min.js.map" />
+    <Content Include="components\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="components\bootstrap\css\bootstrap.css.map" />
+    <Content Include="components\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="components\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="components\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="components\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="components\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="components\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="components\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="components\font-awesome\less\bordered-pulled.less" />
+    <Content Include="components\font-awesome\less\core.less" />
+    <Content Include="components\font-awesome\less\fixed-width.less" />
+    <Content Include="components\font-awesome\less\font-awesome.less" />
+    <Content Include="components\font-awesome\less\icons.less" />
+    <Content Include="components\font-awesome\less\larger.less" />
+    <Content Include="components\font-awesome\less\list.less" />
+    <Content Include="components\font-awesome\less\mixins.less" />
+    <Content Include="components\font-awesome\less\path.less" />
+    <Content Include="components\font-awesome\less\rotated-flipped.less" />
+    <Content Include="components\font-awesome\less\spinning.less" />
+    <Content Include="components\font-awesome\less\stacked.less" />
+    <Content Include="components\font-awesome\less\variables.less" />
+    <Content Include="components\font-awesome\scss\font-awesome.scss" />
+    <Content Include="components\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="components\font-awesome\scss\_core.scss" />
+    <Content Include="components\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="components\font-awesome\scss\_icons.scss" />
+    <Content Include="components\font-awesome\scss\_larger.scss" />
+    <Content Include="components\font-awesome\scss\_list.scss" />
+    <Content Include="components\font-awesome\scss\_mixins.scss" />
+    <Content Include="components\font-awesome\scss\_path.scss" />
+    <Content Include="components\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="components\font-awesome\scss\_spinning.scss" />
+    <Content Include="components\font-awesome\scss\_stacked.scss" />
+    <Content Include="components\font-awesome\scss\_variables.scss" />
+    <Content Include="components\html5-boilerplate\.bower.json" />
+    <Content Include="components\html5-boilerplate\.gitattributes" />
+    <Content Include="components\html5-boilerplate\.gitignore" />
+    <Content Include="components\html5-boilerplate\.htaccess" />
+    <Content Include="components\html5-boilerplate\CHANGELOG.md" />
+    <Content Include="components\html5-boilerplate\CONTRIBUTING.md" />
+    <Content Include="components\html5-boilerplate\doc\crossdomain.md" />
+    <Content Include="components\html5-boilerplate\doc\css.md" />
+    <Content Include="components\html5-boilerplate\doc\extend.md" />
+    <Content Include="components\html5-boilerplate\doc\faq.md" />
+    <Content Include="components\html5-boilerplate\doc\html.md" />
+    <Content Include="components\html5-boilerplate\doc\js.md" />
+    <Content Include="components\html5-boilerplate\doc\misc.md" />
+    <Content Include="components\html5-boilerplate\doc\TOC.md" />
+    <Content Include="components\html5-boilerplate\doc\usage.md" />
+    <Content Include="components\html5-boilerplate\img\.gitignore" />
+    <Content Include="components\html5-boilerplate\LICENSE.md" />
+    <Content Include="components\html5-boilerplate\README.md" />
+    <Content Include="components\phantomjs\ChangeLog" />
+    <Content Include="components\phantomjs\LICENSE.BSD" />
+    <Content Include="components\phantomjs\README.md" />
+    <Content Include="Scripts\app.module.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\ui-grid.woff" />
+    <Content Include="fonts\ui-grid.ttf" />
+    <Content Include="fonts\ui-grid.eot" />
+    <Content Include="Scripts\controllers\LodashPlayground\AllMeetingCriteriaController.js" />
+    <Content Include="Scripts\controllers\LodashPlayground\FilterWhileUType.js" />
+    <Content Include="Scripts\controllers\LodashPlayground\FirstOrDefaultController.js" />
+    <Content Include="Scripts\controllers\LodashPlayground\IsInCollectionController.js" />
+    <Content Include="Scripts\controllers\LodashPlayground\RemoveFromCollectionController.js" />
+    <Content Include="Scripts\controllers\LodashPlayground\SinglePropertyController.js" />
+    <Content Include="Scripts\controllers\Basic\BasicCallController.js" />
+    <Content Include="Scripts\controllers\PersonModalController.js" />
+    <Content Include="Scripts\controllers\Shopping\ProductsController.js" />
+    <Content Include="Scripts\directives\directives.module.js" />
+    <Content Include="Scripts\directives\forms\alphanumericTextBoxDirective.js" />
+    <Content Include="Scripts\directives\forms\numericOnlyTextBoxDirective.js" />
+    <Content Include="Scripts\directives\forms\phoneNumberTextBoxDirective.js" />
+    <Content Include="Scripts\directives\loadingOverlayDirective.js" />
+    <Content Include="Scripts\directives\menuDirective.js" />
+    <Content Include="Scripts\factories\cartFactory.js" />
+    <Content Include="Scripts\factories\factories.module.js" />
+    <Content Include="Scripts\factories\localStorage.js" />
+    <Content Include="Scripts\filters\filters.module.js" />
+    <Content Include="Scripts\filters\selectedTagsFilter.js" />
+    <Content Include="Scripts\namespace.variables.js" />
+    <Content Include="Scripts\services\CardService.js" />
+    <Content Include="Scripts\services\ContactService.js" />
+    <Content Include="Scripts\services\GroupService.js" />
+    <Content Include="Scripts\services\PersonService.js" />
+    <Content Include="Scripts\services\ProductService.js" />
+    <Content Include="Scripts\services\services.module.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\DegradePhoto.cshtml" />
+    <Content Include="Views\Home\TheWorks.cshtml" />
+    <Content Include="Views\Home\VisibleHidden.cshtml" />
+    <Content Include="Views\Home\Links.cshtml" />
+    <Content Include="Views\Demos\EndlessScrolling.cshtml" />
+    <Content Include="Views\Home\ColumnStacking.cshtml" />
+    <Content Include="Views\Home\FontDegredation.cshtml" />
+    <Content Include="Views\Demos\EndlessScrollingWithAjax.cshtml" />
+    <Content Include="Views\Demos\ScrollToTop.cshtml" />
+    <Content Include="Views\Shared\_BiggLayout.cshtml" />
+    <Content Include="Views\Elementary\_BasicFiltering.cshtml" />
+    <Content Include="Views\Home\_Home.cshtml" />
+    <Content Include="Views\Shared\_ViewStart.cshtml" />
+    <Content Include="Views\Elementary\_BasicForm.cshtml" />
+    <Content Include="Views\Elementary\_GroupCreate.cshtml" />
+    <Content Include="Views\Modals\_AddEditPerson.cshtml" />
+    <Content Include="Views\Elementary\_GridWithGoodies.cshtml" />
+    <Content Include="Views\Lodash\_AllMeetingCriteria.cshtml" />
+    <Content Include="Views\Lodash\_IsInCollection.cshtml" />
+    <Content Include="Views\Lodash\_SingleProperty.cshtml" />
+    <Content Include="Views\Lodash\_FirstOrDefault.cshtml" />
+    <Content Include="Views\Elementary\_Pagination.cshtml" />
+    <None Include="Views\Elementary\_BasicGetData.cshtml" />
+    <Content Include="Views\Elementary\_GroupManager.cshtml" />
+    <Content Include="Views\Elementary\_FormWithModal.cshtml" />
+    <Content Include="Views\Shopping\_Products.cshtml" />
+    <Content Include="Views\Shopping\_Cart.cshtml" />
+    <Content Include="Views\Lodash\_RemoveFromCollection.cshtml" />
+    <Content Include="Views\Elementary\_LocalStorage.cshtml" />
+    <Content Include="Views\Elementary\_FormWithEditDelete.cshtml" />
+    <Content Include="Views\Modals\_DeletePerson.cshtml" />
+    <Content Include="Views\Elementary\_FormWithNestedObjects.cshtml" />
+    <Content Include="Views\Elementary\_FormInputMasks.cshtml" />
+    <Content Include="Views\Lodash\_FilterWhileUType.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BiggResponsive.Domain\BiggResponsive.Domain.csproj">
+      <Project>{8e9ae94f-5be3-4397-8c00-1275e307a3b0}</Project>
+      <Name>BiggResponsive.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BiggResponsive.Service\BiggResponsive.Service.csproj">
+      <Project>{9fef79c1-620c-4d30-a645-c69075a0192d}</Project>
+      <Name>BiggResponsive.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49823</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:54591/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

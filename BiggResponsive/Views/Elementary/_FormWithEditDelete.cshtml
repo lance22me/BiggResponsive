@@ -1,0 +1,29 @@
+﻿<div class="row-fluid">
+    <h2>{{vm.header2}}</h2>
+</div>
+
+<div class="row-fluid" ng-cloak ng-repeat="person in vm.people">
+
+    <div class="media">
+        <div class="media-left" style="max-height: 60px">
+            <a href="#">
+                <img class="media-object thumbnail" ng-src="{{person.profileImage}}" alt="{{person.firstName}} {{person.lastName}}">
+            </a>
+        </div>
+        <div class="media-body">
+            <div class="col-sm-4">
+                <h4 class="media-heading">{{person.firstName}} {{person.lastName}}</h4>
+            </div>
+            <div class="col-sm-4">
+                <button ng-click="vm.openEditPersonModal(person)" type="button" class="btn btn-primary">Edit</button>
+                <button ng-click="vm.openDeletePersonModal(person)" type="button" class="btn btn-danger">Delete</button>
+            </div>
+            <div class="col-sm-4">&nbsp;</div>
+            <div class="col-sm-12">
+                {{person.address}}<br />
+                {{person.city}} {{person.state}} {{person.zip}}<br />
+                {{person.email}} {{person.phone}}
+            </div>
+        </div>
+    </div>
+</div>

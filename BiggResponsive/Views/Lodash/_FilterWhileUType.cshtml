@@ -1,0 +1,25 @@
+﻿<h2>{{vm.header2}}</h2>
+
+<div class="row-fluid TopCushion">
+
+    <form name="form" novalidate>
+        <div class="col-lg-3">
+            <label>Last Name</label>
+            <input type="text" class="form-control" ng-model="vm.searchString" requiredmaxlength="20" ng-keyup="vm.getFilteredList()">
+        </div>
+        <div class="col-lg-9"></div>
+</form>
+</div>
+<div class="ClearBoth"></div>
+<div class="row-fluid">
+
+    <div class="col-sm-3 TopCushion" ng-show="vm.people.length > 0" ng-repeat="item in vm.people">
+        <div>
+            <img class="caption-image thumbnail" ng-src="{{item.profileImage}}" alt="{{item.firstName}} {{item.lastName}}">
+            <div class="caption">
+                <p>{{item.firstName}} {{item.lastName}}</p>
+            </div>
+        </div>
+    </div>
+
+</div>

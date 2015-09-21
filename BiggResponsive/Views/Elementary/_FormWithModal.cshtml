@@ -1,0 +1,13 @@
+﻿<div class="row-fluid">
+    <h2>{{vm.header2}}</h2>
+    <button class="btn-lg  btn-primary" ng-click="vm.openAddPersonModal()">Add A Person</button>
+</div>
+
+<hr />
+
+<div class="row-fluid">
+    <div class="col-lg-12 well" ng-repeat="item in vm.people">
+        <span>{{item.firstName}}</span> <span>{{item.lastName}}</span> <span>{{item.email}}</span>
+    </div>     
+</div>
+

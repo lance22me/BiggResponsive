@@ -1,0 +1,12 @@
+﻿<h2>{{vm.header2}}</h2>
+
+<div class="row-fluid BottomCushion">
+    <a href="#/GroupCreate"><span class="glyphicon glyphicon-hand-left Back" aria-hidden="true"></span> Back to Groups Main Page</a>
+</div>
+
+<div class="row-fluid TopCushion">
+    <div class="col-xs-3" ng-repeat="person in vm.people">
+        <input type="checkbox" ng-checked="vm.isPersonInCurrentGroup(person)" ng-click="vm.toggleMembership(person)">
+        <label>{{person.firstName}} {{person.lastName}}</label>
+    </div>
+</div>

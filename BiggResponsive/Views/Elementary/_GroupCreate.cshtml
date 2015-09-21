@@ -1,0 +1,34 @@
+﻿<h2>{{vm.header2}}</h2>
+
+<div class="row-fluid">
+
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="vm.closeAlert($index)">{{alert.msg}}</alert>
+
+    <form name="form" novalidate>
+        <fieldset class="reply">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <label>Group Name: <span class="warning">*</span></label>
+                    <input class="form-control" name="name" ng-model="vm.groupObj.groupName" type="text" maxlength="30" required>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <label>Group Description: <span class="warning">*</span></label>
+                    <input class="form-control" name="description" ng-model="vm.groupObj.groupDescription" type="text" maxlength="50" required>
+                </div>
+            </div>
+        </fieldset>
+        <button class="btn btn-primary TopCushion" ng-disabled="form.$invalid" ng-click="vm.addNewGroup()" disabled>Add This Group</button>
+        <div class="clearfix"></div>
+
+    </form>
+
+</div>
+
+<hr />
+
+<div class="row-fluid well" ng-repeat="group in vm.groups">
+    <div class="col-lg-4"><span class="SoftLabel">Group Name:</span><br />{{group.groupName}}</div>
+    <div class="col-lg-6"><span class="SoftLabel">Group Description:</span><br />{{group.groupDescription}}</div>
+    <div class="col-lg-2"><button class="btn btn-default" ng-click="vm.addMembers(group)">+ People <span class="badge">{{group.members.length}}</span></button></div>
+    <div class="ClearBoth"></div>
+</div>

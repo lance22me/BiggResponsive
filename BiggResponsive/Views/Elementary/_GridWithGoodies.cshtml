@@ -1,0 +1,47 @@
+﻿<h2>{{vm.header2}}</h2>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Tags</th>
+        <th><!-- controls --></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-cloak ng-repeat="person in vm.people">
+        <td>{{person.firstName}} {{person.lastName}}</td>
+        <td>{{person.address}} {{person.city}} {{person.state}}, {{person.zip}}</td>
+        <td>{{person.tags}}</td>
+        <td>
+            <button ng-click="vm.openEditPersonModal(person)" type="button" class="btn btn-xs btn-primary">Edit</button>
+            <button ng-click="vm.openDeletePersonModal(person)" type="button" class="btn btn-xs btn-danger">Delete</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Small CSS bug in Bootswatch pager re highlighting on div that changes places  -->
+
+<div class="row-fluid ClearBoth TopCushion">
+
+    <div class="col-md-6">
+        <pagination ng-change="pageChanged()"
+                    total-items="vm.personCount"
+                    items-per-page="numPerPage"
+                    ng-model="currentPage"
+                    max-size="5"
+                    class="pagination-sm"
+                    boundary-links="true">
+        </pagination>
+    </div>
+    <div class="col-md-6"></div>
+
+</div>
+
+
+
+
+
+

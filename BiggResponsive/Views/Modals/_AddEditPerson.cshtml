@@ -1,0 +1,50 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">{{modalCtrl.header3}}</h3>
+</div>
+
+<div class="modal-body">
+
+    <form name="form" novalidate>
+        <fieldset class="reply">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <label>First Name: <span class="warning">*</span></label>
+                    <input class="form-control" name="firstName" ng-model="modalCtrl.personObj.firstName" type="text" maxlength="20" required>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <label>Last Name: <span class="warning">*</span></label>
+                    <input class="form-control" name="lastName" ng-model="modalCtrl.personObj.lastName" type="text" maxlength="20" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <label>Adddress:</label>
+                    <input class="form-control" name="address" ng-model="modalCtrl.personObj.address" type="text" maxlength="100">
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <label>City:</label>
+                    <input class="form-control" name="city" ng-model="modalCtrl.personObj.city" type="text" maxlength="50">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <label>Phone:</label>
+                    <input class="form-control" name="phone" ng-model="modalCtrl.personObj.phone" type="text" maxlength="20">
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <label>Email: <span class="warning">*</span></label>
+                    <input class="form-control" name="email" ng-model="modalCtrl.personObj.email" type="email" maxlength="50" required>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+
+</div>
+
+<div class="modal-footer">
+
+    <button class="btn btn-lg btn-primary" ng-show="modalCtrl.mode === 'add'" ng-disabled="form.$invalid" data-loading-text="Adding..." ng-click="modalCtrl.addPerson()">Add Person</button>
+    <button class="btn btn-lg btn-primary" ng-show="modalCtrl.mode === 'edit'" ng-disabled="form.$invalid" data-loading-text="Adding..." ng-click="modalCtrl.editPerson()">Commit Edit</button>
+
+    <button class="btn btn-lg btn-default btn-warning" ng-click="modalCtrl.dismissModal()">Cancel</button>
+</div>

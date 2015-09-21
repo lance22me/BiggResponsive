@@ -1,0 +1,33 @@
+﻿<div class="row">
+    <div class="col-sm-6">
+        <h2 style="margin-top: 0px;">{{vm.header2}}</h2>
+    </div>
+    <div class="col-sm-4" style="padding-top: 22px;" ng-hide="vm.cart.items.length === 0">You have <strong>{{vm.cart.items.length}}</strong> items in your cart. {{vm.cart.grandTotal | currency:"Total cost: $":0}}</div>
+    <div class="col-sm-2"><button type="button" ng-click="vm.viewCart()" ng-hide="vm.cart.items.length === 0" style="margin: 10px 0px 0px 12px;" class="btn btn-info">View Cart</button></div>
+</div>
+<div class="ClearBoth"></div>
+
+<div class="media" ng-cloak ng-repeat="item in vm.products">
+    <div class="media-left">
+        <a href="#">
+            <img class="media-object thumbnail" ng-src="{{item.productImage}}" alt="{{item.name}}">
+        </a>
+    </div>
+    <div class="media-body">
+        <h4 class="media-heading">{{item.name}}</h4>
+        <div style="margin-bottom: 6px;">{{item.description}}</div>
+        <div class="col-sm-3" style="padding-left: 0px !important; ">
+            <div ng-click="vm.setProductColor(item,color)" ng-repeat="color in item.availableColors" class="Swatch {{color}}"></div>
+        </div>
+        <div class="col-sm-3">{{item.price | currency:"Low low price: $":0}}</div>
+        <div class="col-sm-4">
+            <select ng-model="item.quantity" class="form-control" style="width: 90px;">
+                <option ng-selected="1">1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </select>
+        </div>
+        <div class="col-sm-2"><button type="button" class="btn btn-primary" ng-click="vm.addToCart(item,color)">Add To Cart</button></div>
+    </div>
+</div>   

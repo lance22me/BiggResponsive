@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "DegradePhoto";
+    Layout = "~/Views/Shared/_BiggLayout.cshtml";
+}
+<style type="text/css">
+    .SmallDiv {margin-left: 40px; height: 50px; width: 50px; }
+</style>
+
+<h2>Degrade Photo</h2>
+
+<h3>Original Image</h3>
+<img src="~/Content/Images/NoImage.jpg" />
+
+<h3>Responsive Image</h3>
+<img src="~/Content/Images/NoImage.jpg" class="img-responsive" alt="Responsive Image Class"/>
+
+<h3>Responsive Image in 50px X 50 px Container</h3>
+<div class="SmallDiv"><img src="~/Content/Images/NoImage.jpg" class="img-responsive"/></div>

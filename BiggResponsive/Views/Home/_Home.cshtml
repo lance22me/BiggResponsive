@@ -1,0 +1,60 @@
+﻿<h2>{{vm.header2}}</h2>
+
+<div class="row-fluid well" ng-repeat="group in vm.groups">
+    <div class="col-lg-4"><span class="SoftLabel">Group Name:</span><br />{{group.groupName}}</div>
+    <div class="col-lg-6"><span class="SoftLabel">Group Description:</span><br />{{group.groupDescription}}</div>
+    <div class="col-lg-2"><button class="btn btn-default" ng-click="vm.addMembers(group)">+ People <span class="badge">{{group.members.length}}</span></button></div>
+    <div class="ClearBoth"></div>
+</div>
+
+<div class="row-fluid">
+
+    <h4>Very Basic - No-Frills Data Call</h4>
+
+    <a href="#/BasicCall">Very Basic Data Call</a><br />
+
+    <h4>A Few Handy Things</h4>
+
+    <a href="#/Pagination">Pagination with Tag Search</a><br />
+    <a href="#/FilterWhileUType">Filter while you type!</a><br />
+    <a href="#/LocalStorage">HTML5 localStorage</a><br />
+    <a href="#/GridWithGoodies">Grid with Paging, Edit and Delete</a><br />
+
+    <h4>Multi-Model / Multi-Service Interaction</h4>
+
+    <a href="#/GroupCreate">Create Groups, Add Members</a><br />
+    <a href="#/Products">Shopping Cart: Buy Something Really Cool</a><br />
+
+    <h4>Forms, Forms, Forms</h4>
+
+    <a href="#/BasicForm">Very Basic Form</a><br />
+    <a href="#/FormInputMasks">Form Input Masks / Restrict Input on Patterns</a><br />
+    <a href="#/FormWithModal">Form in a Modal Popup</a><br />
+    <a href="#/FormWithEditDelete">Form with Edit and Delete (via modal)</a><br />
+    <a href="#/FormWithNestedObjects">Form with Nested Objects</a><br />
+
+    <h2>Lodash Playground</h2>
+
+    <a href="#/AllMeetingCriteria">(collection) Return all rows matching [criteria]</a><br />
+    <a href="#/RemoveFromCollection">(collection) Remove item(s) from a collection</a><br />
+    <a href="#/IsInCollection">(bool) Are there rows matching [criteria] ?</a><br/>
+    <a href="#/BasicFilter">Filtering based on 'Tags'.</a><br />
+    <a href="#/FirstOrDefault">First instance of matching [criteria]</a><br/>
+    <a href="#/SingleProperty">Return single property on [criteria]</a><br/>
+    
+    <h2>Bootstrap Stuff</h2>
+
+    @Html.ActionLink("Overview Bootstrap of Styles", "TheWorks", "Home")<br />
+    @Html.ActionLink("Photo Degradation", "DegradePhoto", "Home")<br />
+    @Html.ActionLink("Visible - Hidden", "VisibleHidden", "Home")<br />
+    @Html.ActionLink("Column Stacking", "ColumnStacking", "Home")<br />
+    @Html.ActionLink("Animated Scroll To Top", "ScrollToTop", "Demos")<br />
+    @Html.ActionLink("Endless Scrolling", "EndlessScrolling", "Demos")<br />
+    
+    <h3>Angular - Ideology I'm Following As Per This Demo</h3>
+
+    <a target="_blank" href="http://www.technofattie.com/2014/03/21/five-guidelines-for-avoiding-scope-soup-in-angular.html">John Papa's Pattern Explained</a><br />
+    <a target="_blank" href="http://trochette.github.io/Angular-Design-Patterns-Best-Practices/#/intro">Cannonized In Best Practices</a><br />
+
+</div>
+

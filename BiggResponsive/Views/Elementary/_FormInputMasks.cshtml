@@ -1,0 +1,55 @@
+﻿<h2>{{vm.header2}}</h2>
+
+<div class="row-fluid">
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <strong>Gotcha: </strong> ng-pattern and type='numeric' don't enforce filtering, only validation on submit.<br />
+        </div>
+    </div>
+
+</div>
+
+    <form name="form" novalidate>
+        <fieldset class="reply">
+
+            <div class="row BottomCushion">
+                <div class="col-lg-4">
+                    <label>Numeric-Only Text Box</label>
+                    <numeric-only-textbox></numeric-only-textbox>
+                </div>
+                <div class="col-lg-8">
+                    User may only enter numbers. Backspace, arrow keys, tab, and delete also allowed. input type='numeric' allows validation on submit.
+                </div>
+            </div>
+
+            <div class="row BottomCushion">
+                <div class="col-lg-4">
+                    <label>Phone Number Mask: Numbers, Parens, Dash, Periods</label>
+                    <phone-number-textbox></phone-number-textbox>
+                </div>
+                <div class="col-lg-8">
+                    Phone number will be passed up and down the callstack as pure numeric. However, on the webpage it will always appear formatted. 
+                </div>
+            </div>
+
+            <div class="row BottomCushion">
+                <div class="col-lg-4">
+                    <label>Alpha-Numeric Only (no special characters)</label>
+                    <alphanumeric-textbox></alphanumeric-textbox>
+                </div>
+                <div class="col-lg-8">
+                    
+                </div>
+            </div>
+
+
+        </fieldset>
+
+        <div class="clearfix"></div>
+    </form>
+
+</div>
+
+
+

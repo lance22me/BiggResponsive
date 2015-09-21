@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "VisibleHidden";
+    Layout = "~/Views/Shared/_BiggLayout.cshtml";
+}
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            GetFrameCategory();
+
+        });   // end docready
+
+        function GetFrameCategory()
+        {
+            var foo = $('.check:visible').text();
+            alert(foo);
+        }
+
+</script>
+
+    <div class="row-fluid">
+
+        <h3 class="visible-xs">Extra Small</h3>
+        <div class="check visible-xs">Extra Small < 768px</div>
+
+        <h3 class="visible-sm">Small</h3>
+        <div class="check visible-sm">Small ≥ 768px</div>
+
+        <h3 class="visible-md">Medium</h3>
+        <div class="check visible-md">Medium ≥ 992px</div>
+
+        <h3 class="visible-lg">Large</h3>
+        <div class="check visible-lg">Large ≥ 1200px</div>
+
+        <p>&nbsp;</p>
+        <div class="alert alert-dismissable alert-success">NOTICE:  Whatever Size is active above, is not visible below.</div>
+
+
+        <h3 class="hidden-xs">Extra Small (hide)</h3>
+        <div class="hidden-xs">Extra Small < 768px</div>
+
+        <h3 class="hidden-sm">Small (hide)</h3>
+        <div class="hidden-sm">Small ≥ 768px</div>
+
+        <h3 class="hidden-md">Medium (hide)</h3>
+        <div class="hidden-md">Medium ≥ 992px</div>
+
+        <h3 class="hidden-lg">Large (hide)</h3>
+        <div class="hidden-lg">Large ≥ 1200px</div>
+
+    </div>
+    
+

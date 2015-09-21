@@ -1,0 +1,120 @@
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
+<html lang="en" ng-app="biggstuff">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+
+    <link href="~/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/components/bootstrap/themes/Cyborg.css" rel="stylesheet" /> <!-- Cyborg.css, Flatly.css, Darkly.css, United.css, SpaceLab.css -->
+
+    <link href="~/Components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/Styles/BiggResponsive.css" rel="stylesheet" />
+
+    <script src="~/components/jquery/jquery-2.1.3.js"></script>
+    <script src="~/components/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- MORE (angular) AT BOTTOM -->
+</head>
+
+<body ng-controller="BaseCtrl as base">
+
+     <div class="container wrapper">
+
+         <bigg-menu ng-cloak></bigg-menu>
+        <div loading-overlay></div>
+        @RenderBody()
+        <div class="TopCushion"><!-- footer --></div>
+
+     </div><!-- end container -->
+
+    <!-- in a real app, would have a bundler, scripts would be exposed only give certain routes in use -->
+
+    <!-- the base libraries -->
+    <script src="~/Components/angular/angular.js"></script>
+    <script src="~/Components/angular-route/angular-route.js"></script>
+
+    <script src="~/Scripts/common/namespace.js"></script>
+    <script src="~/Scripts/namespace.variables.js"></script>
+    <script src="~/Components/bootstrap-ui/ui-bootstrap-tpls-0.12.0.min.js"></script>
+    <script src="~/Components/lodash/lodash.js"></script>
+
+    <!-- modules -->
+
+    <script src="~/Scripts/app.module.js"></script>
+    <script src="~/Scripts/controllers/controllers.module.js"></script>
+    <script src="~/Scripts/directives/directives.module.js"></script>
+    <script src="~/Scripts/factories/factories.module.js"></script>
+    <script src="~/Scripts/filters/filters.module.js"></script>
+    <script src="~/Scripts/services/services.module.js"></script>
+
+    <script src="~/Scripts/app.routes.js"></script>
+
+    <!-- directives -->
+
+    <script src="~/Scripts/directives/menuDirective.js"></script>
+    <script src="~/Scripts/directives/loadingOverlayDirective.js"></script>
+    <script src="~/Scripts/directives/forms/numericOnlyTextBoxDirective.js"></script>
+    <script src="~/Scripts/directives/forms/phoneNumberTextBoxDirective.js"></script>
+    <script src="~/Scripts/directives/forms/alphanumericTextBoxDirective.js"></script>
+
+    <!-- factories -->
+
+    <script src="~/Scripts/factories/cartFactory.js"></script>
+    <script src="~/Scripts/factories/localStorage.js"></script>
+
+    <!-- services -->
+
+    <script src="~/Scripts/services/CardService.js"></script>
+    <script src="~/Scripts/services/PersonService.js"></script>
+    <script src="~/Scripts/services/ContactService.js"></script>
+    <script src="~/Scripts/services/GroupService.js"></script>
+    <script src="~/Scripts/services/ProductService.js"></script>
+
+    <!-- filters -->
+
+    <script src="~/Scripts/filters/selectedTagsFilter.js"></script>
+
+    <!-- base controllers -->
+
+    <script src="~/Scripts/controllers/BaseController.js"></script>
+    <script src="~/Scripts/controllers/HomeController.js"></script>
+
+    <!-- really basic -->
+
+    <script src="~/Scripts/controllers/Basic/BasicCallController.js"></script>
+
+    <!-- forms forms forms -->
+
+    <script src="~/Scripts/controllers/Basic/BasicFormController.js"></script>
+    <script src="~/Scripts/controllers/Basic/FormInputMasksController.js"></script>
+    <script src="~/Scripts/controllers/Basic/FormWithModalController.js"></script>
+    <script src="~/Scripts/controllers/Basic/FormWithEditDeleteController.js"></script>
+    <script src="~/Scripts/controllers/Basic/FormWithNestedObjectsController.js"></script>
+
+    <!-- Lodash Playground -->
+
+    <script src="~/Scripts/controllers/LodashPlayground/FilterWhileUType.js"></script>
+    <script src="~/Scripts/controllers/LodashPlayground/AllMeetingCriteriaController.js"></script>
+    <script src="~/Scripts/controllers/LodashPlayground/IsInCollectionController.js"></script>
+    <script src="~/Scripts/controllers/LodashPlayground/SinglePropertyController.js"></script>
+    <script src="~/Scripts/controllers/LodashPlayground/FirstOrDefaultController.js"></script>
+    <script src="~/Scripts/controllers/LodashPlayground/RemoveFromCollectionController.js"></script>
+
+    <!-- other controllers -->
+
+
+    <script src="~/Scripts/controllers/Basic/GridGoodiesController.js"></script>
+    <script src="~/Scripts/controllers/CardController.js"></script>
+    <script src="~/Scripts/controllers/PersonModalController.js"></script>
+    <script src="~/Scripts/controllers/GroupCreateController.js"></script>
+    <script src="~/Scripts/controllers/GroupManagerController.js"></script>
+    <script src="~/Scripts/controllers/Basic/PaginationController.js"></script>
+    <script src="~/Scripts/controllers/Basic/LocalStorageController.js"></script>
+
+    <!-- Products and Shopping Cart -->
+
+    <script src="~/Scripts/controllers/Shopping/ProductsController.js"></script>
+
+</body>
+</html>

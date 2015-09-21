@@ -1,0 +1,15 @@
+﻿<h2>{{vm.header2}}</h2>
+
+<div class="row-fluid TopCushion well" ng-hide="vm.storageDeck.length == undefined">
+    <div class="col-xs-1 Cards" ng-repeat="item in vm.storageDeck">
+        <img ng-src="~/Content/ImagesCards/{{item.image}}" class="img-responsive" />
+    </div>
+    <div class="ClearBoth"></div>
+</div>
+
+<div class="row-fluid">
+    <div class="col-xs-2 Cards" ng-repeat="card in vm.deck">
+        <input type="checkbox" ng-checked="vm.isInCollection(card)" ng-click="vm.toggleCardStorage(card)">
+        <label>{{card.displayName}}</label>
+    </div>
+</div>

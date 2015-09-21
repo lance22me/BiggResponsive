@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "EndlessScrolling";
+    Layout = "~/Views/Shared/_BiggLayout.cshtml";
+}
+
+<style>
+    .BigBox { height: 100px; width: 400px; text-align:center; background: #43ac6a; margin-bottom: 10px; padding-top: 20px; border: solid 1px #167037; color: #d3d3d3 }
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(window).scroll(function () {
+            var scroll_pos = $(window).scrollTop();
+
+            if (scroll_pos >= 0.9 * ($(document).height() - $(window).height())) {
+                $('#OnlyRow').append(LoadSomeDivs());
+                // or make an AJAX call
+            }
+        });
+
+    });   // end docready
+
+    function LoadSomeDivs()
+    {
+        return "<div class='BigBox'>Hello World</div><div class='BigBox'>Hello World</div><div class='BigBox'>Hello World</div><div class='BigBox'>Hello World</div>";
+    }
+
+</script>
+
+<h2>Endless Scrolling</h2>
+<p>Infinite scroll might have more browser issues than expected.  The very simple one here might be worth a try. 
+    Keep in mind on iPad and iPhone; the scroll() event does not get fired until scrolling has finished. That's why it feels weird on the iPad.</p>
+
+<div id="OnlyRow" class="row-fluid">
+    <div class="BigBox">Hello World</div>
+    <div class="BigBox">Hello World</div>
+    <div class="BigBox">Hello World</div>
+    <div class="BigBox">Hello World</div>
+    <div class="BigBox">Hello World</div>
+    <div class="BigBox">Hello World</div>
+    <div class="BigBox">Hello World</div>
+    <div class="BigBox">Hello World</div>
+    <div class="BigBox">Hello World</div>
+    <div class="BigBox">Hello World</div>
+</div>
+
